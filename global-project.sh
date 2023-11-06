@@ -28,32 +28,32 @@ if [[ -d "$project_dir" ]]; then
         python3 -m venv "$project_dir/venv"
         source "$project_dir/venv/bin/activate"
         echo "Virtual environment created and activated."
-	echo "enter a tool you will like to install for you venv"
-	read tool
+        echo "Enter a tool you would like to install in your virtual environment:"
+        read tool
         pip install "$tool"
     fi
 
-     # Generate README with run instructions
-readme_file="$project_dir/README.md"
-snake_case_name=$(echo "$project_name" | sed -E 's/[^[:alnum:]]+/_/g' | tr '[:upper:]' '[:lower:]')
-echo "# $project_name" > "$readme_file"
-echo "" >> "$readme_file"
-echo "## Running the project" >> "$readme_file"
-echo "" >> "$readme_file"
-echo "To run the project, follow these steps:" >> "$readme_file"
-echo "" >> "$readme_file"
-echo "1. Navigate to the project directory:" >> "$readme_file"
-echo "   \`cd $project_dir\`" >> "$readme_file"
-echo "" >> "$readme_file"
-echo "2. open the scrip with terminal:" >> "$readme_file"
-echo "   \`vim/nano`" >> "$readme_file"
-echo "" >> "$readme_file"
-echo "3. Run the project:" >> "$readme_file"
-echo "   \`./$file_name_extension\`" >> "$readme_file"
-echo "" >> "$readme_file"
-echo "That's it! The project will now run." >> "$readme_file"
+    # Generate README with run instructions
+    readme_file="$project_dir/README.md"
+    snake_case_name=$(echo "$project_name" | sed -E 's/[^[:alnum:]]+/_/g' | tr '[:upper:]' '[:lower:]')
+    echo "# $project_name" > "$readme_file"
+    echo "" >> "$readme_file"
+    echo "## Running the project" >> "$readme_file"
+    echo "" >> "$readme_file"
+    echo "To run the project, follow these steps:" >> "$readme_file"
+    echo "" >> "$readme_file"
+    echo "1. Navigate to the project directory:" >> "$readme_file"
+    echo "   \`cd $project_dir\`" >> "$readme_file"
+    echo "" >> "$readme_file"
+    echo "2. Activate the virtual environment (if applicable):" >> "$readme_file"
+    echo "   \`source venv/bin/activate\`" >> "$readme_file"
+    echo "" >> "$readme_file"
+    echo "3. Run the project:" >> "$readme_file"
+    echo "   \`./$file_name_extension\`" >> "$readme_file"
+    echo "" >> "$readme_file"
+    echo "That's it! The project will now run." >> "$readme_file"
 else
-    echo "Failed to create project directory."
+    echo "Failed to create the project directory."
 fi
 
 echo "**********************************************"
